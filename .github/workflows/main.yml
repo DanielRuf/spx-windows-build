@@ -35,12 +35,11 @@ jobs:
         run: |
           move config.w32 php-spx/config.w32
           cd php-spx
-          dir C:\tools\php-sdk\bin\
-          ./configure
+          buildconf.bat --add-modules-dir=.
       - name: Configure and build 3
         run: |
           cd php-spx
-          nmake
+          nmake php_spx.dll
 # ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
 # --disable-gcc-warnings
 #      - name: Prepare for building

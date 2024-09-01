@@ -1,0 +1,46 @@
+name: Build and test
+
+on: [push, pull_request]
+
+#env:
+#  UBSAN_OPTIONS: print_stacktrace=1
+
+jobs:
+  build:
+    runs-on: windows-latest
+#    strategy:
+#      matrix:
+#        config: ["--host=x86_64-w64-mingw32", "--host=i686-w64-mingw32"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP SDK with Developer Pack
+        uses: zephir-lang/setup-php-sdk@v1.0
+        with:
+          php_version: '8.0'
+          ts: 'nts'
+          msvc: 'vs16'
+          arch: 'x64'
+          install_dir: 'C:\tools'
+          cache_dir: 'C:\Downloads'
+      - name: Clone source
+        run: |
+          git clone https://github.com/NoiseByNorthwest/php-spx.git
+      - name: Configure and build
+        run: |
+          cd php-spx
+          git checkout release/latest
+          phpize
+          ./configure
+          make
+# ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
+# --disable-gcc-warnings
+#      - name: Prepare for building
+#        run: |
+#          ./bootstrap.sh
+#          ./configure ${{ matrix.config }}
+#      - uses: actions/upload-artifact@v4
+#        with:
+#          name: gzip.exe
+#          path: gzip/gzip.exe
+#          compression-level: 0
+

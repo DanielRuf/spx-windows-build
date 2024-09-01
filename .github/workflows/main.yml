@@ -30,7 +30,7 @@ jobs:
         run: |
           cd php-spx
           git checkout release/latest
-          phpize
+          configure.bat --disable-all --enable-cli --enable-spx
       - name: Configure and build 2
         run: |
           move config.w32 php-spx/config.w32

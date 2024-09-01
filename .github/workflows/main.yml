@@ -31,7 +31,7 @@ jobs:
           git clone https://github.com/NoiseByNorthwest/php-spx.git C:\spx
       - name: Configure and build 1
         run: |
-          cd php-spx
+          cd C:\spx
           git checkout release/latest
       - name: Configure and build 2
         run: |

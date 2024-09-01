@@ -23,22 +23,28 @@ jobs:
           arch: 'x64'
           install_dir: 'C:\tools'
           cache_dir: 'C:\Temp'
+      - name: Clone PHP-src
+        run: |
+          git clone https://github.com/php/php-src.git C:\php-src
       - name: Clone source
         run: |
-          git clone https://github.com/NoiseByNorthwest/php-spx.git
+          git clone https://github.com/NoiseByNorthwest/php-spx.git C:\spx
       - name: Configure and build 1
         run: |
           cd php-spx
           git checkout release/latest
-          configure --disable-all --enable-cli --enable-spx
       - name: Configure and build 2
         run: |
-          move config.w32 php-spx/config.w32
-          cd php-spx
-          buildconf --add-modules-dir=.
+          cd C:\php-src
+          buildconf --add-modules-dir=C:\spx
       - name: Configure and build 3
         run: |
-          cd php-spx
+          move config.w32 php-spx/config.w32
+          cd C:\php-src
+          configure --disable-all --enable-cli --enable-spx
+      - name: Configure and build 4
+        run: |
+          cd C:\php-src
           nmake php_spx.dll
 # ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
 # --disable-gcc-warnings

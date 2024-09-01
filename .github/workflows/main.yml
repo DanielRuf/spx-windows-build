@@ -13,6 +13,9 @@ jobs:
 #        config: ["--host=x86_64-w64-mingw32", "--host=i686-w64-mingw32"]
     steps:
       - uses: actions/checkout@v4
+      - name: Test paths
+        run: |
+          dir C:\
       - name: Setup PHP SDK with Developer Pack
         uses: zephir-lang/setup-php-sdk@v1.0
         with:

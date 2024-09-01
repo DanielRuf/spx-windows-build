@@ -40,7 +40,7 @@ jobs:
       - name: Configure and build 3
         run: |
           cd php-spx
-          make
+          nmake
 # ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
 # --disable-gcc-warnings
 #      - name: Prepare for building

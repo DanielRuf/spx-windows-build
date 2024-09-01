@@ -25,12 +25,18 @@ jobs:
       - name: Clone source
         run: |
           git clone https://github.com/NoiseByNorthwest/php-spx.git
-      - name: Configure and build
+      - name: Configure and build 1
         run: |
           cd php-spx
           git checkout release/latest
           phpize
+      - name: Configure and build 2
+        run: |
+          cd php-spx
           ./configure
+      - name: Configure and build 3
+        run: |
+          cd php-spx
           make
 # ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
 # --disable-gcc-warnings

@@ -30,12 +30,12 @@ jobs:
         run: |
           cd php-spx
           git checkout release/latest
-          configure.bat --disable-all --enable-cli --enable-spx
+          configure --disable-all --enable-cli --enable-spx
       - name: Configure and build 2
         run: |
           move config.w32 php-spx/config.w32
           cd php-spx
-          buildconf.bat --add-modules-dir=.
+          buildconf --add-modules-dir=.
       - name: Configure and build 3
         run: |
           cd php-spx

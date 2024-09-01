@@ -29,7 +29,6 @@ jobs:
         run: |
           cd php-spx
           git checkout release/latest
-          move config.m4 config.w32
           phpize
       - name: Configure and build 2
         run: |

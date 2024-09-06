@@ -3,7 +3,7 @@ ARG_ENABLE("spx", "Enable SPX extension", "no");
 ARG_ENABLE("spx-dev", "Compile SPX with debugging symbols", "no");
 
 if (PHP_SPX == "yes") {
-    /*if (PHP_THREAD_SAFETY != "no" && CONTINUOUS_INTEGRATION != "true") {
+    /*if (PHP_ZTS != "no"/* && CONTINUOUS_INTEGRATION != "true"*/) {
         AC_MSG_ERROR('SPX does not work with ZTS PHP build');
     }*/
 

@@ -36,7 +36,7 @@ jobs:
       - name: Configure and build 2
         run: |
           cd C:\php-src
-          buildconf.bat --add-modules-dir=C:\spx
+          ./buildconf.bat --add-modules-dir=C:\spx
       - name: Configure and build 3
         run: |
           move config.w32 php-spx/config.w32

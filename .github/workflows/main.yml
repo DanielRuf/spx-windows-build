@@ -35,11 +35,11 @@ jobs:
           git checkout release/latest
       - name: Configure and build 2
         run: |
+          move config.w32 C:\php-spx\
           cd C:\php-src
           ./buildconf.bat --add-modules-dir=C:\php-spx
       - name: Configure and build 3
         run: |
-          move config.w32 C:\php-spx\
           cd C:\php-src
           dir
           ./configure --disable-all --enable-cli --enable-spx

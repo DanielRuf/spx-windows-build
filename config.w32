@@ -1,24 +1,24 @@
-ARG_ENABLE('SPX', 'whether to enable SPX extension', ' --enable-spx   Enable SPX extension');
+ARG_ENABLE('SPX', ' --enable-spx   Enable SPX extension', 'no');
 
-ARG_ENABLE('SPX-DEV', 'whether to enable SPX developer build flags', '  --enable-spx-dev   Compile SPX with debugging symbols');
+ARG_ENABLE('SPX-DEV', '  --enable-spx-dev   Compile SPX with debugging symbols', 'no');
 
-if ("$PHP_SPX" == "yes") {
-    if ("$PHP_THREAD_SAFETY" != "no" && "$CONTINUOUS_INTEGRATION" != "true") {
+if (PHP_SPX == "yes") {
+    if (PHP_THREAD_SAFETY != "no" && CONTINUOUS_INTEGRATION != "true") {
         AC_MSG_ERROR('SPX does not work with ZTS PHP build');
     }
 
     AC_DEFINE('HAVE_SPX', 1, 'spx');
 
     ADD_FLAG("CFLAGS", "-Werror -Wall -O3 -pthread -std=gnu90");
-    if ("$CONTINUOUS_INTEGRATION" == "true") {
+    if (CONTINUOUS_INTEGRATION == "true") {
         ADD_FLAG("CFLAGS", "-DCONTINUOUS_INTEGRATION");
     }
 
-    if ("$PHP_SPX_DEV" == "yes") {
+    if (PHP_SPX_DEV == "yes") {
         ADD_FLAG("CFLAGS", "-g");
     }
 
-    PHP_NEW_EXTENSION(spx,
+    EXTENSION(spx,
         src/php_spx.c               \
         src/spx_profiler.c          \
         src/spx_profiler_tracer.c   \

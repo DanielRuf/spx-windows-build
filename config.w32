@@ -1,6 +1,6 @@
-ARG_ENABLE('SPX', ' --enable-spx   Enable SPX extension', 'no');
+ARG_ENABLE('spx', ' --enable-spx   Enable SPX extension', 'no');
 
-ARG_ENABLE('SPX-DEV', '  --enable-spx-dev   Compile SPX with debugging symbols', 'no');
+ARG_ENABLE('spx-dev', '  --enable-spx-dev   Compile SPX with debugging symbols', 'no');
 
 if (PHP_SPX == "yes") {
     if (PHP_THREAD_SAFETY != "no" && CONTINUOUS_INTEGRATION != "true") {

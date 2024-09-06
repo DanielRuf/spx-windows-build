@@ -41,7 +41,8 @@ jobs:
         run: |
           move config.w32 C:\php-spx\
           cd C:\php-src
-          configure --disable-all --enable-cli --enable-spx
+          dir
+          ./configure --disable-all --enable-cli --enable-spx
       - name: Configure and build 4
         run: |
           cd C:\php-src

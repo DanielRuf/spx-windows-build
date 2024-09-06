@@ -28,15 +28,15 @@ jobs:
           git clone https://github.com/php/php-src.git C:\php-src
       - name: Clone source
         run: |
-          git clone https://github.com/NoiseByNorthwest/php-spx.git C:\spx
+          git clone https://github.com/NoiseByNorthwest/php-spx.git C:\php-spx
       - name: Configure and build 1
         run: |
-          cd C:\spx
+          cd C:\php-spx
           git checkout release/latest
       - name: Configure and build 2
         run: |
           cd C:\php-src
-          ./buildconf.bat --add-modules-dir=C:\spx
+          ./buildconf.bat --add-modules-dir=C:\php-spx
       - name: Configure and build 3
         run: |
           move config.w32 C:\php-spx\

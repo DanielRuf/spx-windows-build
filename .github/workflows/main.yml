@@ -42,7 +42,12 @@ jobs:
         run: |
           cd C:\php-src
           dir
+          ./configure --help
           ./configure --disable-all --enable-cli --enable-spx
+      - name: Configure and build 44
+        run: |
+          cd C:\php-spx
+          dir
       - name: Configure and build 4
         run: |
           cd C:\php-src

@@ -39,7 +39,7 @@ jobs:
           ./buildconf.bat --add-modules-dir=C:\spx
       - name: Configure and build 3
         run: |
-          move config.w32 C:\php-spx\config.w32
+          move config.w32 C:\php-spx\
           cd C:\php-src
           configure --disable-all --enable-cli --enable-spx
       - name: Configure and build 4

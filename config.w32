@@ -9,7 +9,7 @@ if (PHP_SPX == "yes") {
 
     AC_DEFINE("HAVE_SPX", 1, "spx");
 
-    ADD_FLAG("CFLAGS", "-Wall -O3 -pthread -std=gnu90");
+    ADD_FLAG("CFLAGS", "/WX /Wall -O3 -std=std:c11");
     //if (CONTINUOUS_INTEGRATION == "true") {
     //    ADD_FLAG("CFLAGS", "-DCONTINUOUS_INTEGRATION");
     //}

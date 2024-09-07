@@ -2,22 +2,16 @@ name: Build and test
 
 on: [push, pull_request]
 
-#env:
-#  UBSAN_OPTIONS: print_stacktrace=1
-
 jobs:
   build:
     runs-on: windows-latest
-#    strategy:
-#      matrix:
-#        config: ["--host=x86_64-w64-mingw32", "--host=i686-w64-mingw32"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1.13.0
       - name: Setup PHP SDK with Developer Pack
-        uses: zephir-lang/setup-php-sdk@v1.0
+        uses: zephir-lang/setup-php-sdk@fd5f1bce00956a7e8ac30faaa1ff0692d6dacdfb # v1.0
         with:
-          php_version: '8.0'
+          php_version: '8.4'
           ts: 'nts'
           msvc: 'vs16'
           arch: 'x64'
@@ -47,15 +41,4 @@ jobs:
         run: |
           cd C:\php-src
           nmake
-# ./configure CFLAGS='-Wno-bad-function-cast' --quiet --host=x86_64-w64-mingw32
-# --disable-gcc-warnings
-#      - name: Prepare for building
-#        run: |
-#          ./bootstrap.sh
-#          ./configure ${{ matrix.config }}
-#      - uses: actions/upload-artifact@v4
-#        with:
-#          name: gzip.exe
-#          path: gzip/gzip.exe
-#          compression-level: 0
 

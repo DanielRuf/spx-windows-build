@@ -11,7 +11,7 @@ jobs:
       - name: Setup PHP SDK with Developer Pack
         uses: zephir-lang/setup-php-sdk@fd5f1bce00956a7e8ac30faaa1ff0692d6dacdfb # v1.0
         with:
-          php_version: '8.4'
+          php_version: '8.3'
           ts: 'nts'
           msvc: 'vs16'
           arch: 'x64'

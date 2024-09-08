@@ -11,6 +11,8 @@ jobs:
           vcpkg.exe install zlib
           dir C:/vcpkg/packages/zlib_x64-windows/debug/lib
           dir C:/vcpkg/packages/zlib_x64-windows/lib
+          dir C:/vcpkg/packages/zlib_x64-windows
+          dir C:/vcpkg/packages/zlib_x64-windows/src
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1.13.0
       - name: Setup PHP SDK with Developer Pack

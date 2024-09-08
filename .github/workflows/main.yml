@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+      - name: Install zlib
+        run: |
+          vcpkg.exe install zlib
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1.13.0
       - name: Setup PHP SDK with Developer Pack
